@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>National Parks API</title>
+</head>
+<body>
+    <main>
+    <h1>Search for your parks in your favorite states!</h1>
+    <form class='section1'>
+        <input type='text' name='state' id='userState'>
+        <input type='number' max='10' name='maxNumber' id='maxValue'>
+        <input type='submit' value='Go Parks!' name='parks'>
+    </form>
+    <section class='data'></section>
+    <section class='response-data'></section>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

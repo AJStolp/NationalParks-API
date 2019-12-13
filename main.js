@@ -34,7 +34,8 @@ function displayResults(responseJson){
     console.log(responseJson);
 
     for(let i = 0; i < responseJson.data.length; i++) {
-        $('.list').append(`<li></li>`)
+        console.log(responseJson.data[i].fullName);
+        $('.list').append(``)
     }
 }
 

@@ -10,7 +10,6 @@ function formatQueryParams(params) {
 function getNationalParks(state, search){
     const params = {
         stateCode: state,
-        q: search,
         api_key: apiKey,
     };
 
@@ -35,7 +34,11 @@ function displayResults(responseJson){
 
     for(let i = 0; i < responseJson.data.length; i++) {
         console.log(responseJson.data[i].fullName);
-        $('.list').append(``)
+        $('.list').append(`<li><h1>${responseJson.data[i].fullName}</h1></li>
+        <p><a href=${responseJson.data[i].url} target="_blank">${responseJson.data[i].url}</a></p>
+        <p>${responseJson.data[i].description}</p>
+        <p>${responseJson.data[i].weatherInfo}</p>
+        <p><a href="${responseJson.data[i].directionsUrl}" target="_blank">Directions to the Park!</a></p>`)
     }
 }
 

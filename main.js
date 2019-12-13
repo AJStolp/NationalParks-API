@@ -1,5 +1,5 @@
 let apiKey = "ghVZTjFJF6RX2Hr1K5Gij7ZdMgwEvBOygfQZzEzB";
-let searchUrl = "https://developer.nps.gov/api/v1/";
+let searchUrl = "https://developer.nps.gov/api/v1/parks";
 
 function formatQueryParams(params) {
     const queryItems = Object.keys(params)
@@ -9,10 +9,9 @@ function formatQueryParams(params) {
 
 function getNationalParks(state, search){
     const params = {
-        limit: 25,
         stateCode: state,
         q: search,
-        key: apiKey,
+        api_key: apiKey,
     };
 
     let queryString = formatQueryParams(params);
@@ -34,7 +33,7 @@ function getNationalParks(state, search){
 function displayResults(responseJson){
     console.log(responseJson);
 
-    for(let i = 0; i < responseJson.length; i++) {
+    for(let i = 0; i < responseJson.data.length; i++) {
         $('.list').append(`<li></li>`)
     }
 }
@@ -42,9 +41,13 @@ function displayResults(responseJson){
 function submitForm() {
     $('#submit').on('click', function(e){
         e.preventDefault();
-        const state = $('#userState').val();
+        let state = $('#userState').val();
+        console.log(state);
         const maxValue = $('#maxValue').val();
-        getNationalParks(state, maxValue);
+        console.log(maxValue);
+        let park = $('#park').val();
+        getNationalParks(state, park);
+        $('.list').empty();
     })
 }
 

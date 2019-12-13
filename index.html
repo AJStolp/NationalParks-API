@@ -9,10 +9,11 @@
 </head>
 <body>
     <main>
-    <h1>Search for your parks in your favorite states!</h1>
+    <h1>Search for parks in your favorite states!</h1>
     <form class='section1'>
-        <input type='text' name='state' id='userState'>
-        <input type='number' max='25' name='maxNumber' id='maxValue'>
+        <input type='text' class='statePark' id='park' placeholder="Your State Park Here">
+        <input type='text' name='state' id='userState' class='statePark' placeholder="Your State Here">
+        <input type='number' max='25' min='10' name='maxNumber' id='maxValue'>
         <input type='submit' value='Go Parks!' name='parks' id='submit'>
     </form>
     <section class='data'>

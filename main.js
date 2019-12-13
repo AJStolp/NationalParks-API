@@ -7,13 +7,13 @@ function formatQueryParams(params) {
         return queryItems.join('&');
 }
 
-function getNationalParks(state){
+function getNationalParks(state, search){
     const params = {
         limit: 25,
         stateCode: state,
         q: search,
         key: apiKey,
-    }
+    };
 
     let queryString = formatQueryParams(params);
     let url = searchUrl + '?' + queryString;
@@ -23,15 +23,24 @@ function getNationalParks(state){
             if(response.ok){
                 return response.json();
             } 
-        throw new Error(response.statusText)
-        .then(responseJson => console.log(JSON.stringify(responseJson)))
+        throw new Error(response.statusText);
+        })
+        .then(responseJson => displayResults(responseJson))
         .catch (error => {
-            $('.response-data').text(`Sorry but there was an issue behind the scenes - sorry ;( ${error.message}`)
+            $('.response-data').text(`Sorry but there was an issue behind the scenes - sorry ;( - ${error.message}`)
         })
 }
 
+function displayResults(responseJson){
+    console.log(responseJson);
+
+    for(let i = 0; i < responseJson.length; i++) {
+        $('.list').append(`<li></li>`)
+    }
+}
+
 function submitForm() {
-    $('.section1').on('click', function(e){
+    $('#submit').on('click', function(e){
         e.preventDefault();
         const state = $('#userState').val();
         const maxValue = $('#maxValue').val();

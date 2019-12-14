@@ -7,10 +7,11 @@ function formatQueryParams(params) {
         return queryItems.join('&');
 }
 
-function getNationalParks(state, search){
+function getNationalParks(states){
     const params = {
-        stateCode: state,
+        stateCode: states,
         api_key: apiKey,
+        limit: 10,
     };
 
     let queryString = formatQueryParams(params);
@@ -50,7 +51,7 @@ function submitForm() {
         const maxValue = $('#maxValue').val();
         console.log(maxValue);
         let park = $('#park').val();
-        getNationalParks(state, park);
+        getNationalParks(state, park, maxValue);
         $('.list').empty();
     })
 }

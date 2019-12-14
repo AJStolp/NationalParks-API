@@ -11,8 +11,7 @@ function getNationalParks(states, maxValue){
     const params = {
         stateCode: states,
         api_key: apiKey,
-        limit: 25,
-        start: maxValue,
+        limit: maxValue,
     };
 
     let queryString = formatQueryParams(params);
@@ -40,7 +39,8 @@ function displayResults(responseJson){
         <p><a href=${responseJson.data[i].url} target="_blank">${responseJson.data[i].url}</a></p>
         <p>${responseJson.data[i].description}</p>
         <p>${responseJson.data[i].weatherInfo}</p>
-        <p><a href="${responseJson.data[i].directionsUrl}" target="_blank">Directions to the Park!</a></p>`)
+        <p><a href="${responseJson.data[i].directionsUrl}" target="_blank">Directions to the Park!</a></p>
+        <hr>`)
     }
 }
 

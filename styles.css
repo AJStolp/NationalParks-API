@@ -9,3 +9,6 @@ form {
 .list {
     list-style-type: none;
 }
+p {
+    text-align: center;
+}

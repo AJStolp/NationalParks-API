@@ -12,3 +12,7 @@ form {
 .directions{
     text-align: center;
 }
+::placeholder {
+    color: green;
+
+}

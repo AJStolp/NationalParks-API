@@ -26,8 +26,12 @@ function getNationalParks(states, maxValue){
         })
         .then(responseJson => displayResults(responseJson))
         .catch (error => {
-            $('.response-data').text(`Sorry but there was an issue behind the scenes - sorry ;( - ${error.message}`)
+            $('.response-data').text(`Sorry but there was an issue behind the scenes - sorry ;( - ${error.message} - Please make sure you entered a number`)
         })
+
+        if (maxValue > 50) {
+            alert('Please do not enter more than 50')
+        }
 }
 
 function displayResults(responseJson){
@@ -53,6 +57,7 @@ function submitForm() {
         console.log(maxValue);
         getNationalParks(state, maxValue);
         $('.list').empty();
+        $('.response-data').empty();
     })
 }
 

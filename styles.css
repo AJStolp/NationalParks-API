@@ -16,3 +16,6 @@ form {
     color: green;
 
 }
+label {
+    display: none;
+}
